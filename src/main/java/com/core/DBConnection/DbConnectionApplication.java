@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class DbConnectionApplication {
 
 	public static void main(String[] args) {
+		System.out.println("Check");
 		SpringApplication.run(DbConnectionApplication.class, args);
 	}
 
