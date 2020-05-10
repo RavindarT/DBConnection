@@ -1,0 +1,8 @@
+server:
+  port: 8083
+
+spring:    datasource:
+    data-username: QA_DB    data-password: learning    
+    url: jdbc:oracle:thin:@localhost:1522/xe
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+   
