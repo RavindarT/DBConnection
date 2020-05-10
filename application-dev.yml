@@ -1,8 +1,10 @@
 server:
   port: 8083
 
-spring:    datasource:
-    data-username: QA_DB    data-password: learning    
+spring:
+  jpa:    database-platform: org.hibernate.dialect.Oracle10gDialect    datasource:
     url: jdbc:oracle:thin:@localhost:1522/xe
+    username: QA_DB
+    password: learning
     driver-class-name: oracle.jdbc.driver.OracleDriver
-   
+    
