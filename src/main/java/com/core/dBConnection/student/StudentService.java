@@ -11,6 +11,7 @@ import org.apache.log4j.Logger;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 @Service
 public class StudentService {
@@ -22,6 +23,10 @@ public class StudentService {
 	
 	public List<StudentPojo> getStudentsPojo(){
 		logger.info("Comes to service");
+		RestTemplate restTemplate = new RestTemplate();
+//		restTemplate.getForObject(url, responseType, uriVariables);
+//		restTemplate.exchange(url, method, requestEntity, responseType);
+		
 		return (List<StudentPojo>) studentCrud.findAll();
 
 	}
@@ -53,6 +58,19 @@ public class StudentService {
 		
 		studentPojo.setDob(new java.sql.Date(date1.getTime()));
 		studentPojo = studentCrud.save(studentPojo);
+		return "Success";
+	}
+	
+	public String patchRecord(JSONObject json){
+		StudentPojo studentPojo = new StudentPojo();
+		if (json.get("id") == null) {
+			throw new RuntimeExceptionHandling(300, "Testttt");
+		}
+		logger.info("Comes to service");
+		studentPojo.setFirstName((String)json.get("firstname")+"_new name");
+		
+		studentCrud.save(studentPojo);
+		
 		return "Success";
 	}
 }

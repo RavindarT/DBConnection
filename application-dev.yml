@@ -3,6 +3,9 @@ server:
 
 spring:
   jpa:    database-platform: org.hibernate.dialect.Oracle10gDialect    datasource:
+#    url: jdbc:oracle:thin:@//database-1.cup7rovtfx1q.us-east-2.rds.amazonaws.com:1521/ORCL
+#    username: awsusersysdba
+#    password: learning
     url: jdbc:oracle:thin:@localhost:1522/xe
     username: QA_DB
     password: learning
