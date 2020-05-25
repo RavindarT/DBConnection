@@ -62,7 +62,7 @@ public class StudentController {
 	
 	@PatchMapping("/partialUpdate")
 	public String patchRecord(@RequestBody JSONObject jsonObject) {
-		
+		logger.info("Comes to controller:::"+jsonObject.get("firstname")+":::"+jsonObject.get("id"));
 		return studentService.patchRecord(jsonObject);
 	
 	}

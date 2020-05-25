@@ -66,7 +66,7 @@ public class StudentService {
 		if (json.get("id") == null) {
 			throw new RuntimeExceptionHandling(300, "Testttt");
 		}
-		logger.info("Comes to service");
+		logger.info("Comes to service:::"+json.get("firstname")+":::"+json.get("id"));
 		studentPojo.setFirstName((String)json.get("firstname")+"_new name");
 		
 		studentCrud.save(studentPojo);
